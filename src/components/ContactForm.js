@@ -1,7 +1,67 @@
-import { useForm, ValidationError } from "@formspree/react";
+import { useState } from "react";
 
-const ContactForm = () => {
-  const [state, handleSubmit] = useForm("mwlkaoza");
+const ContactForm = ({ formspreeId = "mwlkaoza" }) => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+
+  const [submitting, setSubmitting] = useState(false);
+  const [succeeded, setSucceeded] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setSubmitting(true);
+    setErrorMessage("");
+
+    try {
+      const response = await fetch(`https://formspree.io/f/${formspreeId}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setSucceeded(true);
+        setSubmitting(false);
+      } else {
+        const data = await response.json().catch(() => ({}));
+        const errorText =
+          (data.errors && data.errors.map((err) => err.message).join(", ")) ||
+          "There was a problem submitting your message. Please try again or contact directly via email.";
+        setErrorMessage(errorText);
+        setSubmitting(false);
+      }
+    } catch (err) {
+      setErrorMessage(
+        "Network error. Please check your internet connection or reach out directly at jenijeniston05@gmail.com."
+      );
+      setSubmitting(false);
+    }
+  };
+
+  const handleReset = () => {
+    setFormData({
+      name: "",
+      email: "",
+      subject: "",
+      message: "",
+    });
+    setSucceeded(false);
+    setErrorMessage("");
+    setSubmitting(false);
+  };
 
   return (
     <section className="section section-bg contact-section" id="contact-section">
@@ -85,13 +145,21 @@ const ContactForm = () => {
           </aside>
 
           <div className="contact-panel">
-            {state.succeeded ? (
+            {succeeded ? (
               <div className="contact-success" role="status">
                 <span className="contact-success-icon" aria-hidden="true">
                   ✓
                 </span>
-                <h3>Message sent</h3>
-                <p>Thanks for reaching out. I&apos;ll get back to you soon.</p>
+                <h3>Message Sent Successfully!</h3>
+                <p>Thanks for reaching out. I&apos;ll get back to you as soon as possible.</p>
+                <button
+                  type="button"
+                  className="contact-submit"
+                  onClick={handleReset}
+                  style={{ marginTop: "24px" }}
+                >
+                  Send Another Message
+                </button>
               </div>
             ) : (
               <form className="contact-form" id="cform" onSubmit={handleSubmit}>
@@ -108,15 +176,11 @@ const ContactForm = () => {
                         id="name"
                         type="text"
                         name="name"
+                        value={formData.name}
+                        onChange={handleChange}
                         placeholder="Your name"
                         autoComplete="name"
                         required
-                      />
-                      <ValidationError
-                        prefix="Name"
-                        field="name"
-                        errors={state.errors}
-                        className="error"
                       />
                     </label>
 
@@ -126,15 +190,11 @@ const ContactForm = () => {
                         id="email"
                         type="email"
                         name="email"
+                        value={formData.email}
+                        onChange={handleChange}
                         placeholder="you@email.com"
                         autoComplete="email"
                         required
-                      />
-                      <ValidationError
-                        prefix="Email"
-                        field="email"
-                        errors={state.errors}
-                        className="error"
                       />
                     </label>
                   </div>
@@ -145,14 +205,10 @@ const ContactForm = () => {
                       id="subject"
                       type="text"
                       name="subject"
+                      value={formData.subject}
+                      onChange={handleChange}
                       placeholder="Project, role, or question"
                       required
-                    />
-                    <ValidationError
-                      prefix="Subject"
-                      field="subject"
-                      errors={state.errors}
-                      className="error"
                     />
                   </label>
 
@@ -162,29 +218,36 @@ const ContactForm = () => {
                       id="message"
                       name="message"
                       rows={5}
+                      value={formData.message}
+                      onChange={handleChange}
                       placeholder="A short note about the project or how I can help…"
                       required
-                    />
-                    <ValidationError
-                      prefix="Message"
-                      field="message"
-                      errors={state.errors}
-                      className="error"
                     />
                   </label>
                 </div>
 
-                <ValidationError
-                  errors={state.errors}
-                  className="error contact-form-error"
-                />
+                {errorMessage && (
+                  <div
+                    className="error contact-form-error"
+                    style={{
+                      marginTop: "16px",
+                      padding: "12px 14px",
+                      background: "rgba(255, 59, 0, 0.12)",
+                      border: "1px solid rgba(255, 59, 0, 0.4)",
+                      color: "#ff6b4a",
+                      fontSize: "13px",
+                    }}
+                  >
+                    {errorMessage}
+                  </div>
+                )}
 
                 <button
                   type="submit"
                   className="contact-submit"
-                  disabled={state.submitting}
+                  disabled={submitting}
                 >
-                  {state.submitting ? "Sending…" : "Send Message"}
+                  {submitting ? "Sending…" : "Send Message"}
                 </button>
               </form>
             )}

@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Link from "next/link";
 import Layout from "../src/layout/Layout";
 import dynamic from "next/dynamic";
 
@@ -22,6 +23,14 @@ const works = () => {
           <div className="row">
             <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
               <div className="h-titles">
+                <Link href="/">
+                  <a className="return-home-page-btn">
+                    <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                    </svg>
+                    Return to Home
+                  </a>
+                </Link>
                 <h1 className="h-title">Projects</h1>
               </div>
             </div>

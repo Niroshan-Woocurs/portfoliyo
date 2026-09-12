@@ -66,10 +66,8 @@ const GraphicDesignCarousel = () => {
                   onClick={() => setSelectedPoster(poster)}
                 >
                   <div className="poster-image-holder">
-                    <img src={poster.image} alt={poster.title} loading="lazy" decoding="async" />
+                    <img src={poster.image} alt="Graphic Poster" loading="lazy" decoding="async" />
                     <div className="poster-overlay">
-                      <span className="badge-tag">{poster.category}</span>
-                      <h4 className="poster-slide-title">{poster.title}</h4>
                       <button className="view-btn">
                         <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -110,24 +108,12 @@ const GraphicDesignCarousel = () => {
               className="lightbox-close-btn"
               onClick={() => setSelectedPoster(null)}
               aria-label="Close Lightbox"
+              title="Close Lightbox"
             >
-              ✕
+              ✕ CLOSE
             </button>
-            <div className="lightbox-content">
-              <div className="lightbox-img-wrap">
-                <img src={selectedPoster.image} alt={selectedPoster.title} />
-              </div>
-              <div className="lightbox-details">
-                <span className="lightbox-category">{selectedPoster.category}</span>
-                <h3 className="lightbox-title">{selectedPoster.title}</h3>
-                <div className="lightbox-tags">
-                  {selectedPoster.tags.map((tag, idx) => (
-                    <span key={idx} className="lightbox-tag-chip">
-                      #{tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
+            <div className="lightbox-img-wrap">
+              <img src={selectedPoster.image} alt="Graphic Poster" />
             </div>
           </div>
         </div>

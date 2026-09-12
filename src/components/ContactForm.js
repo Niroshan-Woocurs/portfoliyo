@@ -23,7 +23,8 @@ const ContactForm = ({ formspreeId = "mwlkaoza" }) => {
     setErrorMessage("");
 
     try {
-      const response = await fetch(`https://formspree.io/f/${formspreeId}`, {
+      // First try Next.js API route /api/contact to avoid client-side CORS issues on Vercel
+      let response = await fetch("/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -32,12 +33,27 @@ const ContactForm = ({ formspreeId = "mwlkaoza" }) => {
         body: JSON.stringify(formData),
       });
 
+      // Fallback directly to Formspree if /api/contact is unavailable (404/500)
+      if (!response.ok && response.status === 404) {
+        const targetId = process.env.NEXT_PUBLIC_FORMSPREE_KEY || process.env.NEXT_PUBLIC_FORMSPREE_ID || formspreeId;
+        response = await fetch(`https://formspree.io/f/${targetId}`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify(formData),
+        });
+      }
+
+      const data = await response.json().catch(() => ({}));
+
       if (response.ok) {
         setSucceeded(true);
         setSubmitting(false);
       } else {
-        const data = await response.json().catch(() => ({}));
         const errorText =
+          data.error ||
           (data.errors && data.errors.map((err) => err.message).join(", ")) ||
           "There was a problem submitting your message. Please try again or contact directly via email.";
         setErrorMessage(errorText);

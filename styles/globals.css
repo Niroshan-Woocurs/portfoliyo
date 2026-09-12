@@ -2781,122 +2781,182 @@ body.project-lightbox-open {
   gap: 6px;
 }
 
-/* Lightbox Modal */
+/* Lightbox Modal & Pure Poster Viewer */
 .poster-lightbox-overlay,
 .bento-lightbox-overlay {
   position: fixed;
   inset: 0;
   z-index: 999999;
-  background: rgba(6, 6, 10, 0.92);
-  backdrop-filter: blur(16px);
+  background: rgba(5, 5, 8, 0.94);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 24px;
+  padding: 20px;
+  animation: fadeInModal 0.25s ease-out;
 }
 
+@keyframes fadeInModal {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.poster-lightbox-modal,
 .bento-lightbox-content {
   position: relative;
-  max-width: 1000px;
-  width: 100%;
-  max-height: 88vh;
-  display: flex;
-  background: #0d0d14;
-  border: 1px solid rgba(245, 230, 202, 0.2);
-  border-radius: 24px;
-  overflow: hidden;
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8);
-}
-
-.bento-lightbox-media {
-  flex: 1.4;
-  background: #000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
-.bento-lightbox-media img {
-  max-width: 100%;
+  max-width: 90vw;
   max-height: 85vh;
-  object-fit: contain;
-}
-
-.bento-lightbox-sidebar {
-  flex: 1;
-  padding: 40px 32px;
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: center;
-  background: rgba(15, 15, 22, 0.8);
+  background: transparent;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.95), 0 0 30px rgba(245, 230, 202, 0.15);
+  border: 1px solid rgba(245, 230, 202, 0.25);
 }
 
-.sidebar-cat {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: #f5e6ca;
-  margin-bottom: 12px;
-}
-
-.sidebar-title {
-  font-size: 26px;
-  font-weight: 800;
-  color: #ffffff;
-  margin: 0 0 18px 0;
-  line-height: 1.2;
-}
-
-.sidebar-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 24px;
-}
-
-.sidebar-tag-chip {
-  font-size: 12px;
-  color: rgba(245, 230, 202, 0.8);
-  background: rgba(245, 230, 202, 0.08);
-  border: 1px solid rgba(245, 230, 202, 0.15);
-  padding: 4px 10px;
-  border-radius: 12px;
-}
-
-.sidebar-counter {
-  font-size: 12px;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.4);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-.bento-lightbox-close,
-.lightbox-close-btn {
-  position: absolute;
-  top: 24px;
-  right: 28px;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: #ffffff;
-  font-size: 20px;
-  cursor: pointer;
+.lightbox-img-wrap,
+.bento-lightbox-media {
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 10;
-  transition: background 0.25s ease;
+  background: #08080c;
+  max-width: 100%;
+  max-height: 80vh;
+  overflow: hidden;
+}
+
+.lightbox-img-wrap img,
+.bento-lightbox-media img {
+  max-width: 100%;
+  max-height: 80vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 12px;
+  display: block;
+}
+
+.pure-lightbox-footer {
+  width: 100%;
+  padding: 10px 16px;
+  background: rgba(10, 10, 15, 0.85);
+  backdrop-filter: blur(10px);
+  text-align: center;
+  border-top: 1px solid rgba(245, 230, 202, 0.15);
+}
+
+.pure-poster-count {
+  font-family: 'Rubik', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: #F5E6CA;
+}
+
+/* Single Clean Static Close Button Attached to Modal (No Nav Overlap) */
+.bento-lightbox-close,
+.lightbox-close-btn {
+  position: absolute !important;
+  top: 12px !important;
+  right: 12px !important;
+  padding: 6px 14px !important;
+  border-radius: 6px !important;
+  background: rgba(10, 10, 15, 0.94) !important;
+  border: 1px solid rgba(245, 230, 202, 0.45) !important;
+  color: #F5E6CA !important;
+  font-family: 'Rubik', sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.08em !important;
+  cursor: pointer !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 6px !important;
+  z-index: 10000 !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.9) !important;
+  transform: none !important;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease !important;
+  animation: none !important;
 }
 
 .bento-lightbox-close:hover,
 .lightbox-close-btn:hover {
-  background: rgba(245, 230, 202, 0.3);
-  color: #f5e6ca;
+  background: #F5E6CA !important;
+  color: #0A0A0A !important;
+  border-color: #F5E6CA !important;
+  transform: none !important;
+}
+
+/* Hide Poster Titles and Names as requested */
+.poster-slide-title,
+.badge-tag,
+.bento-title,
+.bento-badge {
+  display: none !important;
+}
+
+/* Return Home Buttons */
+.return-home-header-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  background: rgba(245, 230, 202, 0.08);
+  border: 1px solid rgba(245, 230, 202, 0.3);
+  border-radius: 20px;
+  color: #F5E6CA !important;
+  font-family: 'Rubik', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-decoration: none !important;
+  transition: all 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.return-home-header-btn:hover {
+  background: #F5E6CA;
+  color: #0A0A0A !important;
+  border-color: #F5E6CA;
+  transform: translateX(-3px);
+  box-shadow: 0 4px 18px rgba(245, 230, 202, 0.4);
+}
+
+.return-home-page-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  margin-bottom: 20px;
+  background: rgba(245, 230, 202, 0.08);
+  border: 1px solid rgba(245, 230, 202, 0.25);
+  border-radius: 20px;
+  color: #F5E6CA !important;
+  font-family: 'Rubik', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-decoration: none !important;
+  transition: all 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.return-home-page-btn:hover {
+  background: #F5E6CA;
+  color: #0A0A0A !important;
+  border-color: #F5E6CA;
+  transform: translateX(-3px);
+  box-shadow: 0 4px 18px rgba(245, 230, 202, 0.4);
 }
 
 .bento-lightbox-arrow {
@@ -4253,6 +4313,100 @@ body.project-lightbox-open {
     display: none !important;
     opacity: 0 !important;
     pointer-events: none !important;
+    visibility: hidden !important;
+  }
+}
+
+/* Global Content, Image & Screenshot Protection CSS */
+html, body {
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+  -webkit-touch-callout: none !important;
+}
+
+/* Allow text input and selection for form fields */
+input, textarea {
+  -webkit-user-select: text !important;
+  -moz-user-select: text !important;
+  -ms-user-select: text !important;
+  user-select: text !important;
+}
+
+/* Allow CV Download buttons to be clicked */
+a[download], a[href*=".pdf"], .btn, button, .lnk {
+  pointer-events: auto !important;
+}
+
+img {
+  -webkit-user-drag: none !important;
+  -khtml-user-drag: none !important;
+  -moz-user-drag: none !important;
+  -o-user-drag: none !important;
+  user-drag: none !important;
+  pointer-events: none !important;
+}
+
+/* Lightbox & Interactive Images */
+.lightbox-img-wrap img,
+.bento-lightbox-media img,
+.poster-image-holder img,
+.bento-image-wrap img {
+  pointer-events: auto !important;
+}
+
+/* Privacy Screen Capture & Blur Shield Overlay */
+.screen-protection-shield {
+  position: fixed;
+  inset: 0;
+  z-index: 99999999;
+  background: #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+.screen-protection-shield.is-active {
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+}
+
+.shield-message-box {
+  text-align: center;
+  padding: 40px;
+  background: #0A0A0E;
+  border: 1px solid rgba(245, 230, 202, 0.3);
+  border-radius: 16px;
+  max-width: 440px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9);
+}
+
+.shield-message-box h3 {
+  font-family: 'Rubik', sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: #F5E6CA;
+  margin: 16px 0 8px 0;
+}
+
+.shield-message-box p {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Print Protection Safeguard */
+@media print {
+  html, body {
+    display: none !important;
     visibility: hidden !important;
   }
 }

@@ -1,5 +1,6 @@
 import Head from "next/head";
 import { Fragment } from "react";
+import ContentProtection from "../src/components/ContentProtection";
 import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }) {
@@ -76,6 +77,7 @@ function MyApp({ Component, pageProps }) {
         <link rel="icon" href="assets/images/n2dev_favicon.jpg" type="image/jpeg" />
         <link rel="apple-touch-icon" href="assets/images/n2dev_logo.jpg" />
       </Head>
+      <ContentProtection />
       <Component {...pageProps} />{" "}
     </Fragment>
   );

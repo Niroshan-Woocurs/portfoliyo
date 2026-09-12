@@ -83,6 +83,14 @@ const GraphicDesignPage = () => {
           <div className="row">
             <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
               <div className="h-titles">
+                <Link href="/">
+                  <a className="return-home-page-btn">
+                    <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                    </svg>
+                    Return to Home
+                  </a>
+                </Link>
                 <h1 className="h-title">Poster &amp; Graphic Design</h1>
               </div>
             </div>
@@ -121,10 +129,8 @@ const GraphicDesignPage = () => {
                   onClick={() => setActivePosterIndex(globalIndex)}
                 >
                   <div className="bento-image-wrap">
-                    <img src={poster.image} alt={poster.title} loading="lazy" decoding="async" />
+                    <img src={poster.image} alt="Graphic Poster" loading="lazy" decoding="async" />
                     <div className="bento-overlay">
-                      <span className="bento-badge">{poster.category}</span>
-                      <h3 className="bento-title">{poster.title}</h3>
                       <div className="bento-action-hint">
                         <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
@@ -177,20 +183,12 @@ const GraphicDesignPage = () => {
         </div>
       </section>
 
-      {/* Lightbox Modal with Advanced Full-Screen & Mobile Sheet Layout */}
+      {/* Lightbox Modal with Pure Image Viewer */}
       {activePoster && (
         <div
           className="bento-lightbox-overlay"
           onClick={() => setActivePosterIndex(null)}
         >
-          <button
-            className="bento-lightbox-close"
-            onClick={() => setActivePosterIndex(null)}
-            aria-label="Close Lightbox"
-          >
-            ✕
-          </button>
-
           <button
             className="bento-lightbox-arrow prev"
             onClick={(e) => {
@@ -206,44 +204,23 @@ const GraphicDesignPage = () => {
             className="bento-lightbox-content"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="mobile-modal-handle" />
+            <button
+              className="bento-lightbox-close"
+              onClick={() => setActivePosterIndex(null)}
+              aria-label="Close Lightbox"
+              title="Close Lightbox"
+            >
+              ✕ CLOSE
+            </button>
 
             <div className="bento-lightbox-media">
-              <img src={activePoster.image} alt={activePoster.title} />
+              <img src={activePoster.image} alt="Graphic Poster" />
             </div>
-
-            <div className="bento-lightbox-sidebar">
-              <span className="sidebar-cat">{activePoster.category}</span>
-              <h2 className="sidebar-title">{activePoster.title}</h2>
-              <div className="sidebar-tags">
-                {activePoster.tags.map((tag, idx) => (
-                  <span key={idx} className="sidebar-tag-chip">
-                    #{tag}
-                  </span>
-                ))}
-              </div>
-              <div className="sidebar-counter">
-                Poster {activePosterIndex + 1} of {filteredPosters.length}
-              </div>
-
-              {/* Mobile Quick Action Buttons inside modal */}
-              <div className="mobile-modal-nav-bar">
-                <button
-                  className="mobile-nav-btn"
-                  onClick={handlePrevPoster}
-                >
-                  ← Prev
-                </button>
-                <span className="mobile-nav-counter">
-                  {activePosterIndex + 1} / {filteredPosters.length}
-                </span>
-                <button
-                  className="mobile-nav-btn"
-                  onClick={handleNextPoster}
-                >
-                  Next →
-                </button>
-              </div>
+            
+            <div className="pure-lightbox-footer">
+              <span className="pure-poster-count">
+                {activePosterIndex + 1} / {filteredPosters.length}
+              </span>
             </div>
           </div>
 

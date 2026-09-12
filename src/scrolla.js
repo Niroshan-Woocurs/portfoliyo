@@ -3,15 +3,15 @@ export const scrollaJs = () => {
     let methods;
     methods = {
       init: function (elements, options) {
-        window.scroll(function () {
+        $(window).on("scroll", function () {
           methods.animate(elements, options);
         });
-        window.trigger("scroll");
+        $(window).trigger("scroll");
       },
       animate: function (elements, options) {
         let viewBottom, viewHeight, viewTop;
-        viewHeight = window.height();
-        viewTop = window.scrollTop();
+        viewHeight = $(window).height();
+        viewTop = $(window).scrollTop();
         viewBottom = viewTop + viewHeight;
         elements.forEach(function () {
           let elementAnimated,

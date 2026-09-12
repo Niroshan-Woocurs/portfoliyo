@@ -4245,3 +4245,14 @@ body.project-lightbox-open {
     background-color: transparent !important;
   }
 }
+
+/* Prevent floating scroll progress button on mobile from intercepting touch swipes and triggering auto-scroll to top */
+@media screen and (max-width: 767px) {
+  .scroll-progress-rail,
+  .scroll-progress-rail.is-visible {
+    display: none !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    visibility: hidden !important;
+  }
+}

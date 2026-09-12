@@ -4431,4 +4431,12 @@ img {
     -webkit-touch-callout: none !important;
     user-select: none !important;
   }
+
+  /* Mobile Natural Touch Scroll - Disable Any Auto Snap or Jump */
+  html, body, .container-page, .wrapper, .section {
+    scroll-snap-type: none !important;
+    scroll-behavior: auto !important;
+    overscroll-behavior: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
 }

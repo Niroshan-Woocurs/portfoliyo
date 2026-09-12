@@ -154,13 +154,6 @@ const Header = () => {
                     </li>
 
                     <li className="menu-item">
-                      <Link href="/blog">
-                        <a onClick={() => closeMenu()}>
-                          Blog
-                        </a>
-                      </Link>
-                    </li>
-                    <li className="menu-item">
                       <a
                         href="/#contact-section"
                         onClick={(e) => handleNavClick(e, "contact-section")}

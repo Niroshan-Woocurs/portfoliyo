@@ -70,6 +70,16 @@ export const animation = () => {
 
 // jarallax
 export const parallax = () => {
+  if (
+    typeof window !== "undefined" &&
+    (window.innerWidth <= 1024 ||
+      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+        navigator.userAgent
+      ))
+  ) {
+    return;
+  }
+
   const section = document.querySelectorAll(".section");
   section.forEach((element, i) => {
     setTimeout(() => {

@@ -4410,3 +4410,25 @@ img {
     visibility: hidden !important;
   }
 }
+
+/* Mobile Long-Press & Screenshot Protection Safeguards */
+* {
+  -webkit-touch-callout: none !important;
+}
+
+@media screen and (max-width: 1024px) {
+  img {
+    -webkit-touch-callout: none !important;
+    -webkit-user-select: none !important;
+    user-select: none !important;
+    pointer-events: none !important;
+  }
+
+  .lightbox-img-wrap,
+  .bento-lightbox-media,
+  .poster-image-holder,
+  .bento-image-wrap {
+    -webkit-touch-callout: none !important;
+    user-select: none !important;
+  }
+}

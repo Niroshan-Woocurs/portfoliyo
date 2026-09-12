@@ -6,7 +6,6 @@ const ContentProtection = () => {
   useEffect(() => {
     // Disable Right Click (Context Menu)
     const handleContextMenu = (e) => {
-      // Allow right click if clicking on an input/textarea if needed, otherwise block
       if (
         e.target.tagName !== "INPUT" &&
         e.target.tagName !== "TEXTAREA"
@@ -20,6 +19,24 @@ const ContentProtection = () => {
     const handleDragStart = (e) => {
       e.preventDefault();
       return false;
+    };
+
+    // Disable Mobile Long-Press Image Save Callout
+    let touchTimer = null;
+    const handleTouchStart = (e) => {
+      if (
+        e.target.tagName === "IMG" ||
+        (e.target.closest && e.target.closest("img"))
+      ) {
+        // Prevent default long press menu on mobile
+        touchTimer = setTimeout(() => {
+          if (e.cancelable) e.preventDefault();
+        }, 200);
+      }
+    };
+
+    const handleTouchEnd = () => {
+      if (touchTimer) clearTimeout(touchTimer);
     };
 
     // Disable Copy, Cut & Select
@@ -98,7 +115,7 @@ const ContentProtection = () => {
       }
     };
 
-    // Screen Capture & Focus Loss Privacy Overlay
+    // Mobile App Switcher, Page Hide & Screen Capture Focus Shield
     const handleBlur = () => {
       setBlurOverlay(true);
     };
@@ -115,9 +132,16 @@ const ContentProtection = () => {
       }
     };
 
+    const handlePageHide = () => {
+      setBlurOverlay(true);
+    };
+
     // Attach Event Listeners
     document.addEventListener("contextmenu", handleContextMenu);
     document.addEventListener("dragstart", handleDragStart);
+    document.addEventListener("touchstart", handleTouchStart, { passive: false });
+    document.addEventListener("touchend", handleTouchEnd);
+    document.addEventListener("touchcancel", handleTouchEnd);
     document.addEventListener("copy", handleCopyCutSelect);
     document.addEventListener("cut", handleCopyCutSelect);
     document.addEventListener("selectstart", handleCopyCutSelect);
@@ -125,11 +149,15 @@ const ContentProtection = () => {
     document.addEventListener("keyup", handleKeyUp);
     window.addEventListener("blur", handleBlur);
     window.addEventListener("focus", handleFocus);
+    window.addEventListener("pagehide", handlePageHide);
     document.addEventListener("visibilitychange", handleVisibilityChange);
 
     return () => {
       document.removeEventListener("contextmenu", handleContextMenu);
       document.removeEventListener("dragstart", handleDragStart);
+      document.removeEventListener("touchstart", handleTouchStart);
+      document.removeEventListener("touchend", handleTouchEnd);
+      document.removeEventListener("touchcancel", handleTouchEnd);
       document.removeEventListener("copy", handleCopyCutSelect);
       document.removeEventListener("cut", handleCopyCutSelect);
       document.removeEventListener("selectstart", handleCopyCutSelect);
@@ -137,6 +165,7 @@ const ContentProtection = () => {
       document.removeEventListener("keyup", handleKeyUp);
       window.removeEventListener("blur", handleBlur);
       window.removeEventListener("focus", handleFocus);
+      window.removeEventListener("pagehide", handlePageHide);
       document.removeEventListener("visibilitychange", handleVisibilityChange);
     };
   }, []);

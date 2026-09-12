@@ -539,16 +539,6 @@ export function CinematicFooter() {
                   <a href="/works">Projects</a>
                 </li>
                 <li>
-                  <a
-                    href="assets/images/noyal.pdf"
-                    download="noyal.pdf"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    Download CV
-                  </a>
-                </li>
-                <li>
                   <a href="/#contact-section">Contact</a>
                 </li>
               </ul>

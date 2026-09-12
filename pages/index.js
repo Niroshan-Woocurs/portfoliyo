@@ -739,6 +739,15 @@ const Index = () => {
                         </div>
                       </div>
                     </div>
+                    <a
+                      className="btn resume-cv-btn"
+                      href="assets/images/noyal.pdf"
+                      download="noyal.pdf"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <span>Download CV</span>
+                    </a>
                   </div>
                 </div>
 

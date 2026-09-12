@@ -38,18 +38,57 @@ const Header = () => {
 
   const handleNavClick = (e, sectionId) => {
     closeMenu();
-    if (sectionId) {
-      if (window.location.pathname === "/" || window.location.pathname === "") {
-        e.preventDefault();
-        setTimeout(() => {
-          const element = document.getElementById(sectionId);
-          if (element) {
-            element.scrollIntoView({ behavior: "smooth" });
+    if (!sectionId) return;
+
+    if (window.location.pathname === "/" || window.location.pathname === "") {
+      e.preventDefault();
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          const headerOffset = 60;
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth",
+          });
+          if (window.history && window.history.pushState) {
+            window.history.pushState(null, "", "#" + sectionId);
           }
-        }, 100);
-      }
+        }
+      }, 150);
+    } else {
+      e.preventDefault();
+      router.push("/#" + sectionId);
     }
   };
+
+  useEffect(() => {
+    const handleHashScroll = () => {
+      const hash = window.location.hash;
+      if (hash && (window.location.pathname === "/" || window.location.pathname === "")) {
+        const targetId = hash.replace("#", "");
+        setTimeout(() => {
+          const element = document.getElementById(targetId);
+          if (element) {
+            const headerOffset = 60;
+            const elementPosition = element.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: "smooth",
+            });
+          }
+        }, 300);
+      }
+    };
+
+    handleHashScroll();
+    router.events.on("routeChangeComplete", handleHashScroll);
+    return () => {
+      router.events.off("routeChangeComplete", handleHashScroll);
+    };
+  }, [router]);
 
   useEffect(() => {
     const handleRouteChange = () => {

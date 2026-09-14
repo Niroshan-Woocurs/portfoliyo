@@ -16,7 +16,7 @@ const EventsSection = () => {
           <div className="col-xs-12 col-sm-12 col-md-9 col-lg-9 vertical-line">
             <div className="text">
               <p>
-                Represented <strong>Prime One Global</strong> and <strong>Altitude1</strong> at <strong>GITEX Asia 2026 Singapore</strong> — Asia's Largest &amp; Most Global Tech, AI &amp; Startup Event.
+                Represented <strong>Prime One Global (PVT) LTD</strong> and <strong>Altitude1 (PVT) LTD</strong> at <strong>GITEX Asia 2026 Singapore</strong> — Asia's Largest &amp; Most Global Tech, AI &amp; Startup Event.
               </p>
             </div>
           </div>
@@ -47,7 +47,7 @@ const EventsSection = () => {
                 </div>
                 <div className="user-photo-caption-bar">
                   <span className="user-name">Noyal Niroshan</span>
-                  <span className="user-role">Prime One Global &amp; Altitude1 Delegate</span>
+                  <span className="user-role">Prime One Global (PVT) LTD &amp; Altitude1 (PVT) LTD Delegate</span>
                 </div>
               </div>
             </div>
@@ -57,7 +57,7 @@ const EventsSection = () => {
               <div className="event-home-details">
                 <div className="event-pill-row">
                   <span className="meta-tag"><i className="fas fa-map-marker-alt" /> Singapore</span>
-                  <span className="meta-tag"><i className="fas fa-building" /> Prime One Global &amp; Altitude1</span>
+                  <span className="meta-tag"><i className="fas fa-building" /> Prime One Global (PVT) LTD &amp; Altitude1 (PVT) LTD</span>
                   <span className="meta-tag"><i className="fas fa-robot" /> AI &amp; Tech Innovations</span>
                 </div>
 
@@ -69,7 +69,7 @@ const EventsSection = () => {
                 </h4>
 
                 <p className="event-card-desc">
-                  Grateful for this incredible opportunity to represent <strong>Prime One Global</strong> and <strong>Altitude1</strong> at GITEX Asia 2026 in Singapore. Engaged with global startups, tech executives, and innovators from the United States, Germany, Singapore, Italy, and Sri Lanka to explore future AI trends and enterprise solutions.
+                  Grateful for this incredible opportunity to represent <strong>Prime One Global (PVT) LTD</strong> and <strong>Altitude1 (PVT) LTD</strong> at GITEX Asia 2026 in Singapore. Engaged with global startups, tech executives, and innovators from the United States, Germany, Singapore, Italy, and Sri Lanka to explore future AI trends and enterprise solutions.
                 </p>
 
                 {/* Secondary Photo Preview from events/home */}

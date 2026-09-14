@@ -5,8 +5,8 @@ export const gitexEventData = {
   date: "2026",
   location: "Singapore",
   representedCompanies: [
-    { name: "Prime One Global", role: "International Delegate" },
-    { name: "Altitude1", role: "Software Engineer & Tech Representative" }
+    { name: "Prime One Global (PVT) LTD", role: "International Delegate" },
+    { name: "Altitude1 (PVT) LTD", role: "Software Engineer & Tech Representative" }
   ],
   homeBadge: "assets/images/events/home/unnamed.png",
   homeUserPhoto: "assets/images/events/home/1.jpeg",
@@ -14,10 +14,10 @@ export const gitexEventData = {
   storySections: [
     {
       id: "representation",
-      title: "Representing Prime One Global & Altitude1",
+      title: "Representing Prime One Global (PVT) LTD & Altitude1 (PVT) LTD",
       icon: "fas fa-award",
       content:
-        "Proud to represent Prime One Global and Altitude1 on an international stage at GITEX Asia 2026 in Singapore. It was a remarkable milestone connecting with global tech leaders, representing our engineering capabilities, and exploring the next generation of digital transformation."
+        "Proud to represent Prime One Global (PVT) LTD and Altitude1 (PVT) LTD on an international stage at GITEX Asia 2026 in Singapore. It was a remarkable milestone connecting with global tech leaders, representing our engineering capabilities, and exploring the next generation of digital transformation."
     },
     {
       id: "networking-tech",
@@ -36,7 +36,7 @@ export const gitexEventData = {
   ],
   featuredHighlights: [
     { id: 25, src: "assets/images/events/gallery/25.jpeg", title: "GITEX Asia 2026 Singapore Summit", category: "Event Stage", span: "bento-large" },
-    { id: 23, src: "assets/images/events/gallery/23.jpeg", title: "Prime One Global & Altitude1 Stage", category: "Representation", span: "bento-tall" },
+    { id: 23, src: "assets/images/events/gallery/23.jpeg", title: "Prime One Global (PVT) LTD & Altitude1 (PVT) LTD Stage", category: "Representation", span: "bento-tall" },
     { id: 15, src: "assets/images/events/gallery/15.jpeg", title: "Global Tech & AI Exhibition Hall", category: "AI & Tech", span: "bento-medium" },
     { id: 10, src: "assets/images/events/gallery/10.jpeg", title: "International Startup Delegations", category: "Networking", span: "bento-wide" },
     { id: 8, src: "assets/images/events/gallery/8.jpeg", title: "Singapore Tech Summit Hall", category: "Summit", span: "bento-medium" },
@@ -46,7 +46,7 @@ export const gitexEventData = {
   ],
   fullGallery: [
     { id: 25, type: "image", src: "assets/images/events/gallery/25.jpeg", title: "GITEX Asia 2026 Singapore Summit", category: "Representation" },
-    { id: 23, type: "image", src: "assets/images/events/gallery/23.jpeg", title: "Prime One Global & Altitude1 Stage", category: "Representation" },
+    { id: 23, type: "image", src: "assets/images/events/gallery/23.jpeg", title: "Prime One Global (PVT) LTD & Altitude1 (PVT) LTD Stage", category: "Representation" },
     { id: 15, type: "image", src: "assets/images/events/gallery/15.jpeg", title: "Global Tech & AI Exhibition Hall", category: "AI & Tech" },
     { id: 10, type: "image", src: "assets/images/events/gallery/10.jpeg", title: "International Startup Delegations", category: "Networking" },
     { id: 8, type: "image", src: "assets/images/events/gallery/8.jpeg", title: "Singapore Tech Summit Keynote", category: "AI & Tech" },
@@ -65,7 +65,7 @@ export const gitexEventData = {
     { id: 16, type: "image", src: "assets/images/events/gallery/16.jpeg", title: "Global Startup Founders Exchange", category: "Networking" },
     { id: 17, type: "image", src: "assets/images/events/gallery/17.jpeg", title: "Singapore Tech Venue Landmark", category: "Representation" },
     { id: 18, type: "image", src: "assets/images/events/gallery/18.jpeg", title: "Singapore Summit Evening Reception", category: "Representation" },
-    { id: 20, type: "image", src: "assets/images/events/gallery/20.jpeg", title: "Prime One Global Summit Delegation", category: "Representation" },
+    { id: 20, type: "image", src: "assets/images/events/gallery/20.jpeg", title: "Prime One Global (PVT) LTD Summit Delegation", category: "Representation" },
     { id: 21, type: "image", src: "assets/images/events/gallery/21.jpeg", title: "GITEX 2026 Closing Ceremony & Reflections", category: "Representation" },
     { id: 201, type: "video", src: "assets/images/events/gallery/WhatsApp Video 2026-09-11 at 02.04.59.mp4", title: "GITEX Asia 2026 Summit Live Atmosphere", category: "Videos" },
     { id: 202, type: "video", src: "assets/images/events/gallery/WhatsApp Video 2026-09-11 at 02.05.13.mp4", title: "Singapore Tech Highlights & Delegation Reel", category: "Videos" }

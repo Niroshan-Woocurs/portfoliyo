@@ -30,10 +30,10 @@ const EventsPage = () => {
   return (
     <Layout extraWrapClass="events-detailed-page">
       <Head>
-        <title>GITEX Asia 2026 Singapore | Prime One Global &amp; Altitude1 Representation — Noyal Niroshan</title>
+        <title>GITEX Asia 2026 Singapore | Prime One Global (PVT) LTD &amp; Altitude1 (PVT) LTD Representation — Noyal Niroshan</title>
         <meta
           name="description"
-          content="Noyal Niroshan representing Prime One Global and Altitude1 at GITEX Asia 2026 in Singapore. Discover AI innovations, startup delegations, and tech highlights."
+          content="Noyal Niroshan representing Prime One Global (PVT) LTD and Altitude1 (PVT) LTD at GITEX Asia 2026 in Singapore. Discover AI innovations, startup delegations, and tech highlights."
         />
       </Head>
 
@@ -54,8 +54,8 @@ const EventsPage = () => {
                 <h1 className="h-title">GITEX Asia 2026 Singapore</h1>
               </div>
               <div className="events-delegation-pill-row">
-                <span className="delegation-pill"><i className="fas fa-building" /> Prime One Global</span>
-                <span className="delegation-pill"><i className="fas fa-microchip" /> Altitude1</span>
+                <span className="delegation-pill"><i className="fas fa-building" /> Prime One Global (PVT) LTD</span>
+                <span className="delegation-pill"><i className="fas fa-microchip" /> Altitude1 (PVT) LTD</span>
                 <span className="delegation-pill"><i className="fas fa-map-marker-alt" /> Singapore Summit</span>
                 <span className="delegation-pill"><i className="fas fa-robot" /> Tech &amp; AI Event</span>
               </div>
@@ -73,7 +73,7 @@ const EventsPage = () => {
                 <div className="story-hero-user-frame">
                   <img
                     src="assets/images/events/home/1.jpeg"
-                    alt="Noyal Niroshan - Prime One Global & Altitude1 Representation"
+                    alt="Noyal Niroshan - Prime One Global (PVT) LTD & Altitude1 (PVT) LTD Representation"
                     className="story-hero-user-img"
                     loading="lazy"
                     decoding="async"
@@ -95,7 +95,7 @@ const EventsPage = () => {
                 <div className="story-intro-content">
                   <h2>International Stage Representation &amp; Innovation Milestone</h2>
                   <p>
-                    Grateful for this incredible opportunity to represent <strong>Prime One Global</strong> and <strong>Altitude1</strong> at the <strong>GITEX Asia 2026</strong> event in Singapore. It was truly a valuable experience where we connected with global startups, explored new innovations, and gained meaningful insights into the future of technology.
+                    Grateful for this incredible opportunity to represent <strong>Prime One Global (PVT) LTD</strong> and <strong>Altitude1 (PVT) LTD</strong> at the <strong>GITEX Asia 2026</strong> event in Singapore. It was truly a valuable experience where we connected with global startups, explored new innovations, and gained meaningful insights into the future of technology.
                   </p>
                 </div>
               </div>

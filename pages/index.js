@@ -755,7 +755,7 @@ const Index = () => {
                   <div className="history-items">
                     <div className="p-title">EXPERIENCE</div>
                     <div className="history-item">
-                      <div className="date">2026 – Present</div>
+                      <div className="date">May 2026 – Present</div>
                       <div className="history-body">
                         <div className="name">Freelance Developer</div>
                         <div className="subname">
@@ -776,7 +776,7 @@ const Index = () => {
                       <div className="history-body">
                         <div className="name">Junior Web Developer &amp; Branch Admin</div>
                         <div className="subname">
-                          Altitude1 — Jaffna
+                          Altitude1 (PVT) LTD — Subsidiary of Prime One Global (PVT) LTD
                         </div>
                         <div className="text">
                           <p>

@@ -59,7 +59,7 @@ const ContentProtection = () => {
       if (e.key === "PrintScreen" || e.keyCode === 44) {
         setBlurOverlay(true);
         if (navigator.clipboard && navigator.clipboard.writeText) {
-          navigator.clipboard.writeText("Protected Content");
+          navigator.clipboard.writeText("Protected Content").catch(() => {});
         }
         setTimeout(() => setBlurOverlay(false), 2500);
         e.preventDefault();
@@ -108,7 +108,7 @@ const ContentProtection = () => {
     const handleKeyUp = (e) => {
       if (e.key === "PrintScreen" || e.keyCode === 44) {
         if (navigator.clipboard && navigator.clipboard.writeText) {
-          navigator.clipboard.writeText("Protected Content");
+          navigator.clipboard.writeText("Protected Content").catch(() => {});
         }
         setBlurOverlay(true);
         setTimeout(() => setBlurOverlay(false), 2500);
